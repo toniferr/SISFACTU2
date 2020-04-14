@@ -24,16 +24,16 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
-	@Size(min=4, max=12)
+	@NotEmpty(message="rellena que no puede estar vacío")
+	@Size(min=4, max=12, message="ni muy corto ni muy largo")
 	@Column(nullable=false)
 	private String nombre;
 	
-	@NotEmpty
+	@NotEmpty(message="rellena que no puede estar vacío")
 	private String apellido;
 	
-	@NotEmpty
-	@Email
+	@NotEmpty(message="rellena que no puede estar vacío")
+	@Email(message="acuerdate del arroba y el .com")
 	@Column(nullable=false, unique=true)
 	private String email;
 	
